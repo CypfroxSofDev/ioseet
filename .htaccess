@@ -1,0 +1,53 @@
+# Do not remove this line, otherwise mod_rewrite rules will stop working
+RewriteBase /
+
+Options +FollowSymLinks
+RewriteEngine on
+
+ErrorDocument 401 /Errores/error401.php
+ErrorDocument 403 /Errores/error403.php
+ErrorDocument 404 /Errores/error404.php
+
+RewriteCond %{HTTP_HOST} ^ioseet.com [NC]
+RewriteRule ^(.*)$ http://www.ioseet.com/$1 [R=301,L]
+
+RewriteRule ^(\w+)/?$      user.php?nick=$1
+RewriteRule ^(\w+)@(.*)/?$   user.php?nick=$1&pagina=$2
+RewriteRule ^@inicio/?$   index.php
+RewriteRule ^@inicio-(.*)/?$   index.php?pagina=$1
+RewriteRule ^@registrarse/?$   Registro/registro.php
+RewriteRule ^@negocios/?$   negocios.php
+RewriteRule ^@novedades/?$   Novedades/novedades.php
+RewriteRule ^@novedades-(.*)/?$   Novedades/novedades.php?tipo=$1
+RewriteRule ^@log/?$   Plugins/log.php
+RewriteRule ^@foto/?$   Diseno/foto.php
+RewriteRule ^@panel/?$   config/panel.php
+RewriteRule ^@portada/?$   Diseno/portada.php
+RewriteRule ^@fondo/?$   Diseno/fondo.php
+RewriteRule ^@editar/?$   Usuario/editar.php
+RewriteRule ^@editexto/?$   Usuario/edit2.php
+RewriteRule ^@editstream/?$   Usuario/edit3.php
+RewriteRule ^@edithorario/?$   Usuario/edit4.php
+RewriteRule ^@buscar/?$   Buscadores/buscar.php
+RewriteRule ^@tendencias-(.*)/?$   Buscadores/buscarhash.php?hash=$1
+RewriteRule ^@buscarp/?$   Buscadores/Funcion_buscar_productos.php
+RewriteRule ^@busca/?$   Buscadores/buscanovedades.php
+RewriteRule ^@buscare/?$   Buscadores/buscacategorias.php
+RewriteRule ^@-(\w+)/?$     Categorias/cate.php?tipo=$1
+RewriteRule ^@anunciate/?$   Admin/anuncios.php
+RewriteRule ^@09291994Borrar/?$   Admin/BorrarPublicidad.php
+RewriteRule ^@fans_(.*)/?$   Usuario/Lista_Fans.php?nick=$1
+RewriteRule ^@donar/?$   Plugins/donar.php
+RewriteRule ^@info/?$   Index/contacto.php
+RewriteRule ^@info-(.*)/?$   Index/contacto.php?pagina=$1
+RewriteRule ^@lostkey/?$   config/lostkey.php
+RewriteRule ^@resetkey-(.*)-(.*)/?$   config/resetkey.php?key=$1&user=$2
+RewriteRule ^@mensajes/?$   mensajes/mensajes.php
+RewriteRule ^@mensajes-(.*)/?$   mensajes/mensajes.php?id=$1
+RewriteRule ^@mensajesvistos/?$   mensajes/mensajes.php?pagina=mensajesvistos
+RewriteRule ^@enviarmensaje-(.*)/?$   mensajes/enviar-mensajes.php?nick=$1
+RewriteRule ^@re290994/?$   Admin/feedetpoints.php
+RewriteRule ^@payu/?$   Usuario/payu.php
+RewriteRule ^@productos-(.*)/?$   Usuario/productos.php?id=$1
+
+
